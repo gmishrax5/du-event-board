@@ -15,6 +15,7 @@ export default function SearchBar({
   onRangeEndChange,
   regions,
   categories,
+  onClearAll,
 }) {
   const isInvalidRange =
     dateFilterType === "customRange" &&
@@ -184,6 +185,22 @@ export default function SearchBar({
             </div>
           )}
         </div>
+
+        {(searchTerm ||
+          selectedRegion ||
+          selectedCategory ||
+          dateFilterType !== "all") && (
+          <div className="search__clear-all-wrapper">
+            <button
+              type="button"
+              className="search__clear-all-btn"
+              onClick={onClearAll}
+              aria-label="Clear all filters"
+            >
+              ✕ Clear All Filters
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
