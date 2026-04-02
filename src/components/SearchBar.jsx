@@ -15,6 +15,11 @@ export default function SearchBar({
   onRangeEndChange,
   regions,
   categories,
+  onClearRegion,
+  onClearCategory,
+  onClearDate,
+  onClearSearch,
+  onClearAll,
 }) {
   const isInvalidRange =
     dateFilterType === "customRange" &&
@@ -180,6 +185,87 @@ export default function SearchBar({
             </div>
           )}
         </div>
+
+        {/* Active Filter Chips */}
+        {(searchTerm ||
+          selectedRegion ||
+          selectedCategory ||
+          dateFilterType !== "all") && (
+          <div className="filter-chips">
+            {searchTerm && (
+              <span className="filter-chip">
+                Search: &quot;{searchTerm}&quot;
+                <button
+                  type="button"
+                  className="filter-chip__remove"
+                  onClick={onClearSearch}
+                  aria-label="Remove search filter"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            {selectedRegion && (
+              <span className="filter-chip">
+                Region: {selectedRegion}
+                <button
+                  type="button"
+                  className="filter-chip__remove"
+                  onClick={onClearRegion}
+                  aria-label="Remove region filter"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            {selectedCategory && (
+              <span className="filter-chip">
+                Category: {selectedCategory}
+                <button
+                  type="button"
+                  className="filter-chip__remove"
+                  onClick={onClearCategory}
+                  aria-label="Remove category filter"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            {dateFilterType !== "all" && (
+              <span className="filter-chip">
+                Date:{" "}
+                {dateFilterType === "thisWeek"
+                  ? "This Week"
+                  : dateFilterType === "thisMonth"
+                    ? "This Month"
+                    : dateFilterType === "upcoming"
+                      ? "Upcoming"
+                      : dateFilterType === "customDate"
+                        ? `On ${customDate || "…"}`
+                        : dateFilterType === "customRange"
+                          ? rangeStart || rangeEnd
+                            ? `${rangeStart || "…"} — ${rangeEnd || "…"}`
+                            : "Custom Range"
+                          : dateFilterType}
+                <button
+                  type="button"
+                  className="filter-chip__remove"
+                  onClick={onClearDate}
+                  aria-label="Remove date filter"
+                >
+                  ✕
+                </button>
+              </span>
+            )}
+            <button
+              type="button"
+              className="filter-chips__clear-all"
+              onClick={onClearAll}
+            >
+              Clear all
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
