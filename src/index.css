@@ -1562,3 +1562,39 @@ span.event-list-row__title {
     padding: 3rem 1rem;
   }
 }
+
+/* ===================================
+   Clear All Filters Button — #138
+   =================================== */
+.search__clear-all-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0.25rem;
+}
+
+.search__clear-all-btn {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ef4444;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all var(--transition-base);
+}
+
+.search__clear-all-btn:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.light-theme .search__clear-all-btn {
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.light-theme .search__clear-all-btn:hover {
+  background: rgba(239, 68, 68, 0.06);
+}

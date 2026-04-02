@@ -77,6 +77,16 @@ export default function App() {
     }
   };
 
+  const handleClearAll = () => {
+    setSearchTerm("");
+    setSelectedRegion("");
+    setSelectedCategory("");
+    setDateFilterType("all");
+    setCustomDate("");
+    setRangeStart("");
+    setRangeEnd("");
+  };
+
   const regions = useMemo(() => {
     const unique = [...new Set(events.map((e) => e.region))];
     return unique.sort();
@@ -219,6 +229,7 @@ export default function App() {
         onRangeEndChange={setRangeEnd}
         regions={regions}
         categories={categories}
+        onClearAll={handleClearAll}
       />
       <main className="main" id="main-content">
         <div
