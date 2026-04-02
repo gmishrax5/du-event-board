@@ -1562,3 +1562,101 @@ span.event-list-row__title {
     padding: 3rem 1rem;
   }
 }
+
+/* ===================================
+   Active Filter Chips
+   =================================== */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.75rem 0.25rem 0.25rem;
+  align-items: center;
+  width: 100%;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.85rem;
+  background: rgba(124, 92, 252, 0.08);
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+}
+
+.filter-chip:hover {
+  background: rgba(124, 92, 252, 0.14);
+  color: var(--text-primary);
+}
+
+.filter-chip__remove {
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  line-height: 1;
+  padding: 0;
+}
+
+.filter-chip__remove:hover {
+  background: rgba(124, 92, 252, 0.25);
+  color: var(--accent-secondary);
+}
+
+.filter-chips__clear-all {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: all var(--transition-base);
+  margin-left: 0.25rem;
+}
+
+.filter-chips__clear-all:hover {
+  border-color: var(--border-accent);
+  color: var(--accent-primary);
+  background: rgba(124, 92, 252, 0.08);
+}
+
+/* Light theme overrides */
+.light-theme .filter-chip {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.light-theme .filter-chip__remove {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .filter-chip__remove:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+@media (max-width: 480px) {
+  .filter-chips {
+    gap: 0.4rem;
+  }
+
+  .filter-chip {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.45rem 0.25rem 0.7rem;
+  }
+}
